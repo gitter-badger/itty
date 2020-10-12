@@ -246,8 +246,10 @@ tespk/frontend/media/
 package-lock.json
 # webpack bundles
 tespk/frontend/assets/*
+
 #env files
-*.env
+env/*.env
+
 webpack-stats.json
 staticfiles.zip
 *.rdb
