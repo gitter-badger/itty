@@ -8,12 +8,6 @@ const ROOT_DIR = path.join(__dirname, '..');
 
 const config = {
     entry: {
-        main: [
-            'react-hot-loader/patch',
-            'webpack-dev-server/client?http://0.0.0.0:3000',
-            'webpack/hot/only-dev-server',
-            path.join(__dirname, '../js/src/main/index')
-        ],
         index: [
             'babel-polyfill',
             ROOT_DIR + '/itty/frontend/src/index.jsx',
@@ -21,7 +15,7 @@ const config = {
     },
     output: {
         path: ROOT_DIR + '/itty/frontend/assets/webpack_bundles/',
-        filename: 'index.js',
+        filename: "[name]-[hash].js",
     },
     module: {
         rules: [
@@ -51,7 +45,7 @@ const config = {
             },
             {
                 test: /\.(png|jpg|jpeg)$/,
-                loader: 'url-loader',
+                 loader: 'url-loader',
             }
         ]
     },

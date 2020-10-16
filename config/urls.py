@@ -14,8 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include, re_path
+
+from itty.frontend.views import index
+from itty.urls import v1_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("api/v1/", include(v1_urlpatterns), name="apiv1"),
+    # AUTH
+    # url("auth/", auth, name="auth"),
+    ########################################################################
+
+    # Entry point
+    # path(r'^$', index),
+    re_path(r'^(?:.*)/?$', index),
 ]

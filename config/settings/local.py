@@ -62,8 +62,7 @@ REST_FRAMEWORK = {
         # Any other parsers
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        # 'rest_framework.authentication.SessionAuthentication',
-        'tespk.tespk_auth.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
@@ -78,34 +77,34 @@ REST_FRAMEWORK = {
 # https://docs.djangoproject.com/en/dev/ref/settings/#logging
 # See https://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
-LOGGING = {
-    "version": 1,
-        "disable_existing_loggers": False,
-        "loggers": {
-                'main': {
-                    'level': 'DEBUG',
-                    'handlers': ['file'],
-                    'propagate': True,
-                }
-            },
-        "handlers": {
-            "file": {
-                "level": "DEBUG",
-                "class": "logging.handlers.TimedRotatingFileHandler",
-                "filename": os.path.join(BASE_DIR, "logs/tespk.log"),
-                'when': 'midnight',  # this specifies the interval(roll over set to midnight)
-                'interval': 1,  # defaults to 1, only necessary for other values
-                'backupCount': 10,  # how many backup file to keep, 10 days
-                "formatter": "verbose",
-            }
-        },
-        "formatters": {
-            "verbose": {
-                "format": "%(levelname)s %(asctime)s %(module)s "
-                          "%(process)d %(thread)d %(message)s"
-            }
-        }
-}
+# LOGGING = {
+#     "version": 1,
+#         "disable_existing_loggers": False,
+#         "loggers": {
+#                 'main': {
+#                     'level': 'DEBUG',
+#                     'handlers': ['file'],
+#                     'propagate': True,
+#                 }
+#             },
+#         "handlers": {
+#             "file": {
+#                 "level": "DEBUG",
+#                 "class": "logging.handlers.TimedRotatingFileHandler",
+#                 "filename": os.path.join(BASE_DIR, "logs/tespk.log"),
+#                 'when': 'midnight',  # this specifies the interval(roll over set to midnight)
+#                 'interval': 1,  # defaults to 1, only necessary for other values
+#                 'backupCount': 10,  # how many backup file to keep, 10 days
+#                 "formatter": "verbose",
+#             }
+#         },
+#         "formatters": {
+#             "verbose": {
+#                 "format": "%(levelname)s %(asctime)s %(module)s "
+#                           "%(process)d %(thread)d %(message)s"
+#             }
+#         }
+# }
 # Your stuff...
 # ------------------------------------------------------------------------------
 
@@ -114,7 +113,7 @@ WEBPACK_LOADER = {
     "DEFAULT": {
         "CACHE": not DEBUG,  # on DEBUG should be False
         "BUNDLE_DIR_NAME": 'webpack_bundles/',  # must end with slash
-        "STATS_FILE": "tespk/frontend/assets/webpack_bundles/webpack-stats.dev.json",
+        "STATS_FILE": "itty/frontend/assets/webpack_bundles/webpack-stats.json",
         "POLL_INTERVAL": 0.1,
         "TIMEOUT": None,
         "IGNORE": [".+\.hot-update.js", ".+\.map"],

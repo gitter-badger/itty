@@ -4,14 +4,14 @@
   "description": "Open Source Analytics Tracker",
   "main": "index.js",
   "prettier": "eslint-config-vinta/prettier",
-  "scripts": {
-    "build-development": "webpack --config itty/frontend/webpack/webpack.local.config.js --progress --colors",
-    "build-production": "webpack --config itty/frontend/webpack/webpack.production.config.js --progress --colors",
-    "watch": "webpack-dev-server --config itty/frontend/webpack/webpack.local.config.js",
-    "test": "./node_modules/karma/bin/karma start itty/frontend/webpack/karma.config.js --log-level debug"
-  },
   "author": "Mark Tripoli",
   "license": "ISC",
+  "scripts": {
+    "build": "webpack --config ./webpack/webpack.prod.js",
+    "dev-build": "webpack --env.NODE_ENV=development --progress -d --config ./webpack/webpack.dev.js --debug",
+    "watch": "webpack-dev-server --env.NODE_ENV=development --progress -d --config ./webpack/webpack.dev.js --watch",
+    "test": "jest"
+  },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.6.3",
@@ -37,8 +37,8 @@
     "url-loader": "^4.1.0",
     "webpack": "^4.42.1",
     "webpack-bundle-tracker": "^0.4.3",
-    "webpack-dev-server": "^3.11.0",
     "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
@@ -49,9 +49,16 @@
     "array-move": "^2.2.2",
     "axios": "0.19.2",
     "babel-polyfill": "6.26.0",
+    "draft-js": "^0.11.7",
+    "draftjs-to-html": "^0.9.1",
+    "file-saver": "^2.0.2",
+    "interweave": "^12.5.0",
+    "moment": "2.22.2",
+    "msal": "^1.2.2",
     "prop-types": "latest",
     "react": "16.13.1",
     "react-aad-msal": "^2.3.5",
+    "react-dom": "^16.13.1",
     "react-draft-wysiwyg": "^1.14.5",
     "react-lazy-load-image-component": "^1.5.0-beta.0",
     "react-native-logs": "^2.2.1",

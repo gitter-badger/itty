@@ -27,8 +27,8 @@ module.exports = {
   ],
   coveragePathIgnorePatterns: [
     'frontend/js/store.js',
-    'frontend/js/index.js',
-    'frontend/js/jquery-index.js',
+    'frontend/js/index.jsx',
+    'frontend/js/jquery-index.jsx',
     'frontend/js/constants/*',
     'frontend/js/pages/*',
     'frontend/js/tests/*',
